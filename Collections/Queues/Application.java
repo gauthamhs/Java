@@ -15,10 +15,10 @@ public static void main(String[] args) {
 	                       // (Throws Exceptions) //
 	
 Queue<Integer> q1 = new ArrayBlockingQueue<Integer>(3); //Syntax for Array Blocking Queue of Size 3
-//Specified inside the brackets.
+                                                        //Specified inside the brackets.
 
 
-//System.out.println(q1.element()); // No Such element exception
+//System.out.println(q1.element()); // Examining Queues: No Such element exception
 //Adding items to the Queue
 	
 	q1.add(55); //Since three elements are added, the head of the queue is usually the element that is added first.
@@ -56,7 +56,6 @@ Queue<Integer> q1 = new ArrayBlockingQueue<Integer>(3); //Syntax for Array Block
 	Queue<Integer> q2 = new ArrayBlockingQueue<Integer>(3);
 	
 	// Peeking at values- Gives the value of the header
-	
 	//Offering Values - Adds Items.
 	System.out.println(q2.peek()); // Returns a null value
 	q2.offer(33);
@@ -81,7 +80,6 @@ Queue<Integer> q1 = new ArrayBlockingQueue<Integer>(3); //Syntax for Array Block
 	System.out.println("Values Polled: " + q2.poll());
 	System.out.println("Values Polled: " + q2.poll()); //Can't poll 4th element, since size is 3,
 	//But doesn't throw an exception.
-
 }
 }
 
