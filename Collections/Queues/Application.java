@@ -12,7 +12,7 @@ public static void main(String[] args) {
 	
 	
 /////////////////////////////// Add, Remove and Examine //////////////////////////////////////
-	                         // (Throws Exceptions) //
+	                       // (Throws Exceptions) //
 	
 Queue<Integer> q1 = new ArrayBlockingQueue<Integer>(3); //Syntax for Array Blocking Queue of Size 3
 //Specified inside the brackets.
