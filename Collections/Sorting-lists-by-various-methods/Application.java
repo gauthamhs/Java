@@ -35,7 +35,6 @@ class Person {
 		this.id = id;
 		this.name = name;
 	}
-
 }
 
 class Sorting_by_Length implements Comparator<String> {
