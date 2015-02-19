@@ -52,6 +52,8 @@ class Human {
 
 public class Application {
 	public static void main(String[] args) {
+		
+		//Using Custom objects as keys in maps.
 		Map<Human, Integer> map = new LinkedHashMap<Human, Integer>(); //Linkedhashmap prints in the order which we created the objects
 		Human human1 = new Human(4, "Karthik");
 		Human human2 = new Human(2, "Zameer"); // Keys
@@ -68,7 +70,8 @@ public class Application {
 			System.out.println(key + ": " + map.get(key));
 		}
 		System.out.println();
-
+		
+		//Using Custom Objects in Set.
 		Set<Human> set = new HashSet<Human>();
 
 		set.add(human1);
