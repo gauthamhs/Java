@@ -60,26 +60,22 @@ class Alphabetical_Sorting implements Comparator<String> {
 	@Override
 	public int compare(String s1, String s2) {
 		return -s1.compareTo(s2); // Displays, reverse alphabetical order
-									// Use (+) if you want natural alphabetical
-									// order
+				          // Use (+) if you want natural alphabetical order
 	}
-
 }
 
 class Integer_Sorting implements Comparator<Integer> {
 
 	@Override
 	public int compare(Integer i1, Integer i2) {
-		return i1.compareTo(i2); // Second way of sorting integer in natural
-									// order.
+		return i1.compareTo(i2); // Second way of sorting integer in natural order.
 	}
-
 }
+
+		//////////////////////// Sorting Lists //////////////////////////////////////////
 
 public class Application {
 	public static void main(String[] args) {
-
-		//////////////////////// Sorting Lists //////////////////////////////////////////
 
 		List<String> list = new ArrayList<String>();
 		Alphabetical_Sorting alpha = new Alphabetical_Sorting();
@@ -122,8 +118,7 @@ public class Application {
 
 		// Sorting Strings based on Length.
 
-		Collections.sort(list, new Sorting_by_Length()); // Sorts based on
-															// length
+		Collections.sort(list, new Sorting_by_Length()); // Sorts based on length
 		System.out.println(list);
 
 		for (String lists : list) {
@@ -193,7 +188,7 @@ public class Application {
 		// Unsorted Objects.
 
 		/* Collections.sort(list2); */// Wont work because the Collections cannot go inside an object.
-									//and because Objects don't follow a natural order.
+					     //and because Objects don't follow a natural order.
 
 		System.out.println(list2);
 		System.out.println();
