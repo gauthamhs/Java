@@ -18,7 +18,6 @@ class Human {
 	@Override
 	public String toString() {
 		return "{id: " + id + ", name: " + name + " }";
-
 	}
 
 	@Override
@@ -49,7 +48,6 @@ class Human {
 			return false;
 		return true;
 	}
-
 }
 
 public class Application {
@@ -79,6 +77,5 @@ public class Application {
 		set.add(human4);
 
 		System.out.println(set);
-
 	}
 }
