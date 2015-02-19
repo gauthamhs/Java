@@ -51,7 +51,6 @@ class Sorting_by_Length implements Comparator<String> {
 		}
 		return 0;
 	}
-
 }
 
 class Alphabetical_Sorting implements Comparator<String> {
