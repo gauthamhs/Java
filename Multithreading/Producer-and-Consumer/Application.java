@@ -6,7 +6,7 @@
 // Queues are thread safe and therefore we don't have to worry about synchronization.
 
 // Take will wait until there are any elements are present in the queue and then take it and return it.
-// Put will wait until items are removed from the queue. Put and Take are friendly and work within the resources.
+// Put will wait until items are removed from the queue. Put and Take methods are friendly and work within the resources.
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
