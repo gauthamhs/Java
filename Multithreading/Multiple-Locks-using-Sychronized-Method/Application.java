@@ -1,6 +1,6 @@
 // Using Multiple locks for efficiency in Multithreading using synchronized code blocks.
 
-package third; 
+//package third; 
 
 public class Application {
 	public static void main(String[] args) {
