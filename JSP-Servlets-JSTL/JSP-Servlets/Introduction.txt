@@ -1,0 +1,54 @@
+Servlets:
+
+They are web pages that are used to add dynamic contents to the server.
+
+Client ------> Servlet(takes requests from the client,  --------> Server
+Server -------> Servlet(Takes the response from the server and spits it on the browser) ------------> Client.
+
+Servlets are Java code which serves HTML in them. 
+To print HTML Code, 
+
+PrintWriter out = response.getWriter();
+out.println("<html>");
+out.println("Content");
+out.println("</html>");
+
+JSP(Java server Page):
+
+JSP's are usually the UI side of the Web application. Servlets acts as the mediator 
+and forwards client requests to appropriate JSP pages.
+
+JSP is usually a HTML file where you can put java code using Scriptlets (<%  %>).
+
+JSP will be internally compiled into a servlet when it is run.
+
+<%= %> evaluates the java code.
+
+Context root is the stem of URL.
+
+Example: http://localhost:8080/Deployment/Hello. 
+http://localhost:8080 is the domain name. /Deployment is the project. /Hello is the stem URL.
+
+index.jsp - Welcome file.
+
+Summary:
+
+1)Servlet: HTML in Java.
+JSP: Java in HTML
+
+2) Both create dynamic content.
+
+3) Servlet acts as Controller and JSP acts as view.
+
+4) Servlet harder to code compared to JSP.
+
+5) JSP internally converted to servlet.
+
+6) Servlet is faster than JSP.
+
+7) JSP has custom tags that can directly call Java Beans.
+
+
+
+
+
