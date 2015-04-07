@@ -1,0 +1,10 @@
+WAR Files:
+
+WAR Files are web archive files where you can archive your entire JSP Servlet Web application into a file and can be 
+deployed onto a server(either local or Tomcat). You can create a WAR file by exporting your project as a WAR file.
+To deploy your web applications, you could put the WAR files in Apache Tomcat Folder under the libs directory.
+
+Servlet Mapping:
+
+If you have a context servlet root Login and would like to change to some other name, you could change the servlet mapping 
+in Web.xml File.
