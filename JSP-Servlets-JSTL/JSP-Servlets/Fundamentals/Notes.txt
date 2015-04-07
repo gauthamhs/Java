@@ -1,0 +1,5 @@
+1) Importing Java Classes into JSP:
+
+Use the page directive @ sign
+<%@ page import="java.util.Date, ... , ... "%>
+
