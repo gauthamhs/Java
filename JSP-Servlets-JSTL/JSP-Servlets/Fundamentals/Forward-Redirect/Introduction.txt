@@ -1,0 +1,3 @@
+Forward(Server Side) --> It just sends one request and forwards the contents(doesn't go to an entirely new page).
+
+Redirect(Client Side) ---> It processes two request, one to fetch the Jsp and another one to redirect to another JSP.
