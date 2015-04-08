@@ -1,0 +1,7 @@
+You can link one file with other file using the @include directive.
+
+1) <%@include file %> is static and will be loaded on translation. 
+2)<%@jsp:include page %> is dynamic and will fetch the pages dynamically. It acts a seperate request to the server.
+
+Use a static Webpage when the content isn't changing now and then(Like a copyright symbol). 
+Use a dynamic webpage when content is changing constantly.(Like weather).
