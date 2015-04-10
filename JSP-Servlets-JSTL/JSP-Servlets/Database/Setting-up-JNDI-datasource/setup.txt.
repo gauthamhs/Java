@@ -1,0 +1,27 @@
+First, You need to configure 2 XML files. One is the context.xml and the other is the web.xml. 
+
+To set up the context.xml file, you need to go to the apache tomcat 7 JNDI datasource and copy the resource name 
+and make the necessary changes like database name, username, password, drivers etc.
+
+Next, you need to go to the content.xml file and copy the resource ref from there and change the database name.
+
+After the configuration of the XML files, you need to write code to  set up the datasource.
+
+private DataSource ds;
+
+InitialContext context initContext = new InitialContext();
+Context env=(Context)initContext.lookup("java:comp/env");
+ds = (Datasource)env.lookup("jdbc/database_name);
+
+// In the try catch, throw new ServletException();
+
+
+Enter connection in the doGet method;
+
+Connection conn;
+
+conn = ds.getConnection(); // Import java.sql.connection // Return in catch.
+
+PrintWriter out = response.getWriter();
+out.println("connected to database");
+conn.close 
