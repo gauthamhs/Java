@@ -1,0 +1,79 @@
+public class CashEntryEntityProcessor {
+	
+	private static final Logger logger = LoggerFactory.getLogger(BillingServiceProcessor.class);
+	
+	public void processCESHolidaysRequest(Exchange exchange) throws Exception{
+		
+		try{
+			
+		String payload = exchange.getIn().getBody(String.class);
+		
+	      CancelPendingRequest cancelPendingRequest =
+	              DomainSerializer.getInstance().fromXml(payload, CancelPendingRequest.class);
+	      
+	      Integer year = cancelPendingRequest.getYear();
+	      
+	      RequestHeaderType requestHeader = new RequestHeaderType();
+	      ServiceInfoType value = new ServiceInfoType();
+	      requestHeader.setServiceInfo(value);
+	      
+	      CESHolidaysRequestCriteriaType cesHolidaysRequest = new CESHolidaysRequestCriteriaType();
+	      cesHolidaysRequest.setYear(year);
+	      
+	      List<Object> list = new ArrayList<Object>();
+	      list.add(requestHeader);
+	      list.add(cesHolidaysRequest);
+	      
+	      exchange.getIn().setHeader(CxfConstants.OPERATION_NAME, "getCESHolidays");
+	      exchange.getIn().setBody(list);
+		} catch (Exception e) {
+        e.printStackTrace();
+      }
+	      
+	}
+	
+	  public void processCESHolidaysResponse(Exchange exchange) throws Exception {
+		    try {
+		    	
+		    	CESHolidaysResponseType response = null;
+
+		      //PaymentInformationResponseType response = null;
+		      //PaymentInformationType paymentInformation =null;
+		      
+		      CESHolidays cesHolidays = null;
+		      
+		      try {
+		        MessageContentsList result = (MessageContentsList) exchange.getIn().getBody();
+		        if (result != null) {
+		          response = (CESHolidaysResponseType) result.get(0);
+		          cesHolidays = (CESHolidays)(response.getCESHolidays().get(0));
+
+/*		          paymentInformation =
+		              (PaymentInformationType) (response.getPaymentInformation().get(0));*/
+		          exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_Y);
+		        } else {
+		          exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_N);
+		        }
+		      } catch (Exception e) {
+		        e.printStackTrace();
+		        exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_N);
+		      }
+		      String paymentString = DomainSerializer.getInstance().toXml(cesHolidays);
+		      
+		      exchange.getIn().setBody(paymentString);
+
+		    } catch (Exception e) {
+
+		      exchange.getIn().setBody(e.getMessage());
+		    }
+		  }
+	
+	  public void processUnsupportOperation(Exchange exchange) throws Exception {
+		    String Action = (String) exchange.getIn().getHeader("Action");
+
+		    logger.info("Begin XYZ - processUnsupportOperation");
+
+		    exchange.getIn().setBody("error");
+		  }
+
+}
