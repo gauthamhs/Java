@@ -43,7 +43,7 @@ public class Processor {
 		        MessageContentsList result = (MessageContentsList) exchange.getIn().getBody();
 		        if (result != null) {
 		          response = (HolidaysResponseType) result.get(0);
-		          cesHolidays = (Holidays)(response.getHolidays().get(0));
+		          Holidays = (Holidays)(response.getHolidays().get(0));
 		          
 		          exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_Y);
 		        } else {
