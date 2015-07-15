@@ -1,30 +1,30 @@
-public class CashEntryEntityProcessor {
+public class Processor {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BillingServiceProcessor.class);
+	private static final Logger logger = LoggerFactory.getLogger(Processor.class);
 	
-	public void processCESHolidaysRequest(Exchange exchange) throws Exception{
+	public void processRequest(Exchange exchange) throws Exception{
 		
 		try{
 			
 		String payload = exchange.getIn().getBody(String.class);
 		
-	      CancelPendingRequest cancelPendingRequest =
-	              DomainSerializer.getInstance().fromXml(payload, CancelPendingRequest.class);
+	      Request Request =
+	              DomainSerializer.getInstance().fromXml(payload, Request.class);
 	      
-	      Integer year = cancelPendingRequest.getYear();
+	      Integer year = Request.getYear();
 	      
 	      RequestHeaderType requestHeader = new RequestHeaderType();
 	      ServiceInfoType value = new ServiceInfoType();
 	      requestHeader.setServiceInfo(value);
 	      
-	      CESHolidaysRequestCriteriaType cesHolidaysRequest = new CESHolidaysRequestCriteriaType();
-	      cesHolidaysRequest.setYear(year);
+	      RequestCriteriaType Request = new RequestCriteriaType();
+	      Request.setYear(year);
 	      
 	      List<Object> list = new ArrayList<Object>();
 	      list.add(requestHeader);
-	      list.add(cesHolidaysRequest);
+	      list.add(Request);
 	      
-	      exchange.getIn().setHeader(CxfConstants.OPERATION_NAME, "getCESHolidays");
+	      exchange.getIn().setHeader(CxfConstants.OPERATION_NAME, "getHolidays");
 	      exchange.getIn().setBody(list);
 		} catch (Exception e) {
         e.printStackTrace();
@@ -35,21 +35,16 @@ public class CashEntryEntityProcessor {
 	  public void processCESHolidaysResponse(Exchange exchange) throws Exception {
 		    try {
 		    	
-		    	CESHolidaysResponseType response = null;
-
-		      //PaymentInformationResponseType response = null;
-		      //PaymentInformationType paymentInformation =null;
+		    	ResponseType response = null;
 		      
-		      CESHolidays cesHolidays = null;
+		      Holidays Holidays = null;
 		      
 		      try {
 		        MessageContentsList result = (MessageContentsList) exchange.getIn().getBody();
 		        if (result != null) {
-		          response = (CESHolidaysResponseType) result.get(0);
-		          cesHolidays = (CESHolidays)(response.getCESHolidays().get(0));
-
-/*		          paymentInformation =
-		              (PaymentInformationType) (response.getPaymentInformation().get(0));*/
+		          response = (HolidaysResponseType) result.get(0);
+		          cesHolidays = (Holidays)(response.getHolidays().get(0));
+		          
 		          exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_Y);
 		        } else {
 		          exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_N);
@@ -58,7 +53,7 @@ public class CashEntryEntityProcessor {
 		        e.printStackTrace();
 		        exchange.getIn().setHeader(Constants.HEADER_SERVICE_RESPONSE_SUCCESS, Constants.SERVICE_RESPONSE_SUCCESS_N);
 		      }
-		      String paymentString = DomainSerializer.getInstance().toXml(cesHolidays);
+		      String paymentString = DomainSerializer.getInstance().toXml(Holidays);
 		      
 		      exchange.getIn().setBody(paymentString);
 
