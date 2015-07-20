@@ -26,8 +26,8 @@ import com.ipacc.policy.platform.cancelpending.config.properties.MessagingConfig
 import com.ipacc.policy.platform.composite.logging.ExchangeLogFormatter;
 
 @Configuration
-@PropertySource({"file:/${POLICYPLATFORM_CONFIG_DIR}/messaging.properties","file:/${POLICYPLATFORM_CONFIG_DIR}/database.properties","file:/${POLICYPLATFORM_CONFIG_DIR}/ile.properties"})
-@ComponentScan(basePackages = { "com.ipacc.policy.platform.cancelpending", "com.ipacc.policy.entity.common.dao" })
+@PropertySource({"file:/${env_variable}/messaging.properties","file:/${env_variable}/database.properties","file:/${env_variable}/ile.properties"})
+@ComponentScan(basePackages = { "com.package1", "com.package2" })
 @ImportResource({"classpath:/camel-config.xml"})
 public class AppConfig  {
   
@@ -37,7 +37,7 @@ MessagingConfig msgConfig;
     private static final Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
     public AppConfig() {
-        logger.info("Constructing AppConfig for policy-cancelpending-svc.");
+        logger.info("Constructing AppConfig.");
     }
 
     @Bean
