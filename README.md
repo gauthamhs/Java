@@ -1,2 +1,2 @@
 ## Java
-A repository which provides Java Programming Codes to provide a solid foundation for Java Programmers.
+A repository that contains Java Programming Codes to provide a solid foundation for Java Programmers.
