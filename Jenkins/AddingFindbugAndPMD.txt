@@ -1,0 +1,23 @@
+1) Go to the Jenkins Main menu, Click on Manage Jenkins>Manage plugins>Installed.
+2) Check to see if Findbugs and PMD are already installed. If not, you have to download the plugins from Jenkins Wiki(*.hpi format)
+2) Add the Following dependencies to your Project. Check if the latest dependency version is compatible with your current Jenkins Version. If not, downgrade to a previous compatible version.
+       
+<plugin>
+<groupId>org.codehaus.mojo</groupId>
+<artifactId>findbugs-maven-plugin</artifactId>
+<version>3.0.1</version>
+<configuration>
+<findbugsXmlOutput>true</findbugsXmlOutput>
+<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+<xmlOutput>true</xmlOutput>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-pmd-plugin</artifactId>
+<version>3.4</version>
+</plugin>
+
+3) In your service, go to Configure>Build>Goals and options. Add  findbugs:findbugs pmd:pmd
+4) Next, go to Build Settings. Turn on “Publish FindBugs analysis results” and “Publish PMD analysis Results”.
