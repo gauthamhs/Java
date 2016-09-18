@@ -10,7 +10,8 @@ public class Application {
 		 Text += ". Would you like some tea"; 
 		 System.out.println(Text);*/
 		 
-/*		 Because the original string is "" and you don't modify it, since you just keep
+/*		 Strings are immutable objects. Once you create a string object, its values cannot be modified.
+                 Because the original string is "" and you don't modify it, since you just keep
 		 adding new Strings to it. This could take a lot of memory and is therefore
 		 undesirable.*/
 
@@ -19,12 +20,17 @@ public class Application {
 		
 		//////////////////////////// String Builder /////////////////////////////////////
 		
+		// 1st Method of Appending Strings using StringBuilder
+		
 		StringBuilder Text = new StringBuilder();
-		StringBuilder Text1 = new StringBuilder();
-		Text.append("");                     // 1st Appending Method
+		Text.append("");                     
 		Text.append("How you doing ?");
 		System.out.println(Text.toString());
-		Text1.append("Hey Man ?.") .append(" What's the time") .append(". I need to know"); //2nd method
+		
+		// 2nd method of appending( Method Chaining using StringBuilder)
+		
+		StringBuilder Text1 = new StringBuilder();
+		Text1.append("Hey Man ?.") .append(" What's the time") .append(". I need to know"); 
 		System.out.println(Text1.toString());
 		
 		/////////////////////////// String Formatting  ////////////////////////////////
