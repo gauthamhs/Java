@@ -11,7 +11,7 @@ public class Application {
 		String complete_text = text_1 + " " + text_2 + " " + text_3 + " " + text_4; // Concatenating strings.
 		
 		// However this is an inefficient method since new strings are created and aren't added to existing string.
-		// consuming lot of memory. However for this program, it should be fine since few variables are used.
+		// consuming lot of memory and causing memory overhead. However for this program, it should be fine since few variables are used.
 		
 		System.out.println(complete_text); // Printing the concatenated string.
 
