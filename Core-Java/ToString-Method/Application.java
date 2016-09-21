@@ -3,6 +3,8 @@
 //First you use a constructor to set an id and a name
 //Then you use the toString() method to display those values.
 
+// The default toString() returns classname@hashcodevalue
+
 class Stringing {
 	private String name;
 	private int id;
