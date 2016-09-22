@@ -1,5 +1,5 @@
 //Simple While loop
-//Here, we will print a statement until its true, and when the statement is false, it exits out the loop.
+//Here, we will print a statement until its true. When the statement is false, it exits out of the loop.
 
 public class Application {
 	public static void main(String[] args) {
