@@ -40,7 +40,7 @@ public class Application {
 		// The references to strings in the array
 		// are initialized to null.
 		System.out.println(texts[0]); // When you create a new array object, it
-					      // is always initialized to 0;
+					      // is always initialized to null;
 
 		// But of course we can set them to actual strings.
 		texts[0] = "one";
